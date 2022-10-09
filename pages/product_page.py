@@ -1,7 +1,6 @@
 import math
 
 from selenium.common.exceptions import NoAlertPresentException
-from selenium.webdriver.common.by import By
 
 from .base_page import BasePage
 from .locators import ProductPageLocators
@@ -10,7 +9,7 @@ from .locators import ProductPageLocators
 class ProductPage(BasePage):
     def add_product_to_basket(self):
         login_link = self.browser.find_element(
-            By.XPATH, "//button[@value='Добавить в корзину']")
+            *ProductPageLocators.CART_BUTTON)
         login_link.click()
 
     def solve_quiz_and_get_code(self):
